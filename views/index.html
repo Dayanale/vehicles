@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <p id="carInfo"></p>
+    <div id="crearCoche">
+        <label for="plate">Plate</label>
+        <input type="text" name="plate" id="plate">
+        <label for="brand">Brand</label>
+        <input type="text" name="brand" id="brand">
+        <label for="color">Color</label>
+        <input type="text" name="color" id="color">
+        <button onclick="createCar()">Create car</button>
+    </div>
+    <div id="ruedas" style="display:none">
+        <div>
+            <label for="marca1">Marca Rueda 1:</label>
+            <input type="text" name="" id="marca1">
+            <label for="diametro1">Diámetro Rueda 1:</label>
+            <input type="number" name="" id="diametro1">
+        </div>
+        <div>
+            <label for="marca2">Marca Rueda 2:</label>
+            <input type="text" name="" id="marca2">
+            <label for="diametro2">Diámetro Rueda 2:</label>
+            <input type="number" name="" id="diametro2">
+        </div>
+        <div>
+            <label for="marca3">Marca Rueda 3:</label>
+            <input type="text" name="" id="marca3">
+            <label for="diametro3">Diámetro Rueda 3:</label>
+            <input type="number" name="" id="diametro3">
+        </div>
+        <div>
+            <label for="marca4">Marca Rueda 4:</label>
+            <input type="text" name="" id="marca4">
+            <label for="diametro4">Diámetro Rueda 4:</label>
+            <input type="number" name="" id="diametro4">
+        </div>
+        <button onclick="createWheels()">Send</button>
+
+    </div>
+
+    <script src="../models/wheel.js"></script>
+    <script src="../models/car.js"></script>
+    <script src="../controllers/controller.js"></script>
+</body>
+
+</html>
