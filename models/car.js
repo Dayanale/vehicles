@@ -1,3 +1,4 @@
+"use strict";
 //import { Wheel } from "../models/wheel"
 var Car = /** @class */ (function () {
     function Car(plate, color, brand) {

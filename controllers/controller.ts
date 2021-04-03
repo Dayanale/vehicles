@@ -2,11 +2,11 @@ console.log('controllers.ts hola');
 //import { Car } from "../models/car";
 
 let car: Car;
-let regex = /[0-9]{4}[a-z]{3}/gmi;
+let regex = /[0-9]{4}[a-z]{3}$/gmi;
 
 function createCar(plate: string, brand: string, color: string) {
   plate = (document.getElementById('plate') as HTMLInputElement).value;
-  if (regex.test(plate)) {
+  if (regex.test(plate) == true) {
     brand = (document.getElementById('brand') as HTMLInputElement).value;
     color = (document.getElementById('color') as HTMLInputElement).value;
 
@@ -28,24 +28,19 @@ function createWheels() {
   let diametro3 = parseFloat((document.getElementById('diametro3') as HTMLInputElement).value)
   let diametro4 = parseFloat((document.getElementById('diametro4') as HTMLInputElement).value)
 
+  let marca1 = (document.getElementById('marca1') as HTMLInputElement).value;
+  let marca2 = (document.getElementById('marca2') as HTMLInputElement).value;
+  let marca3 = (document.getElementById('marca3') as HTMLInputElement).value;
+  let marca4 = (document.getElementById('marca4') as HTMLInputElement).value;
+
+  if(marca1 !== "" && marca2 !== "" && marca3 !== "" && marca4 !== "") {
+
   if(diametro1 + diametro2 + diametro3 + diametro4 <= 8 && diametro1 + diametro2 + diametro3 + diametro4 >= 1.6) {
 
-  let rueda1 = new Wheel(
-    diametro1,
-    (document.getElementById('marca1') as HTMLInputElement).value
-  );
-  let rueda2 = new Wheel(
-    diametro2,
-    (document.getElementById('marca2') as HTMLInputElement).value
-  );
-  let rueda3 = new Wheel(
-    diametro3,
-    (document.getElementById('marca3') as HTMLInputElement).value
-  );
-  let rueda4 = new Wheel(
-    diametro4,
-    (document.getElementById('marca4') as HTMLInputElement).value
-  );
+  let rueda1 = new Wheel(diametro1, marca1);
+  let rueda2 = new Wheel(diametro2, marca2);
+  let rueda3 = new Wheel(diametro3,marca3);
+  let rueda4 = new Wheel(diametro4, marca4);
 
 
   car.addWheel(rueda1);
@@ -54,7 +49,7 @@ function createWheels() {
   car.addWheel(rueda4);
 
 
-  document.body.innerHTML = "CAR:" + "<br>" + "PLATE: " + car.plate
+  (document.getElementById('aside') as HTMLInputElement).innerHTML = "CAR:" + "<br>" + "PLATE: " + car.plate
     + "<br>" + " COLOR: " + car.color
     + "<br>" + " BRAND: " + car.brand
     + "<br>" + " WHEELS: "
@@ -62,8 +57,14 @@ function createWheels() {
     + "<br>" + "Wheel 2: " + "Brand: " + car.wheels[1].brand + " | Diameter: " + car.wheels[1].diameter
     + "<br>" + "Wheel 3: " + "Brand: " + car.wheels[2].brand + " | Diameter: " + car.wheels[2].diameter
     + "<br>" + "Wheel 4: " + "Brand: " + car.wheels[3].brand + " | Diameter: " + car.wheels[3].diameter;
+    
   }
   else {
     alert('el diametro de cada rueda debe ser entre 0.4 y 2');
   }
 }
+else {
+  alert('el campo Marca no puede estar vacío');
+}
+}
+
